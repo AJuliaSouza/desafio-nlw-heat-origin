@@ -136,6 +136,7 @@ body {
 }
 
 #phraseQrCode {
+  max-width: 250px;
   margin-top: 20px;
   font-size: 10px;
 }
