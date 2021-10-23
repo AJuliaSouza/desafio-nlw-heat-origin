@@ -1,0 +1,209 @@
+@keyframes arrow {
+  0% { transform: translateY(0); }
+  50% { transform: translateX(7px); }
+  100% { transform: translateY(0); }
+}
+
+* {
+  margin: 0;
+}
+html {
+  --gray: hsl(240, 9%, 89%);
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  display: grid;
+  place-items: center;
+  background-image: url(../images/background.svg);
+}
+
+.flipCard {
+  width: 358px;
+  height: 630px;
+  perspective: 1000px;
+}
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.flipCardFront, .flipCardBack {
+  color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flipCardFront {
+  background-image: url(../images/identifier.svg);
+}
+
+.flipCardBack {
+  background-image: url(../images/identifier.svg);
+  transform: rotateY(180deg);
+}
+
+.avatar {
+  position: relative;
+  width: 160px;
+}
+
+.avatar img:first-child {
+  position: absolute;
+  top: -15px;
+  z-index: 1;
+}
+
+.avatar img:last-child {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+#userName {
+  margin-top: 0.5rem;
+  font-size: 24px;
+}
+
+.flipCardFront a {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.35rem;
+  text-decoration: none;
+  color: var(--gray);
+}
+
+#userBio {
+  max-width: 300px;
+  font-size: 14px;
+  margin-top: 2.5rem;
+}
+
+#socialLinks {
+  margin-right: 20px;
+  list-style: none;
+  display: flex;
+}
+
+#socialLinks li a img:hover {
+  transform: translate(0, -5px);
+  transition: all ease 0.5s;
+}
+
+.socialArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.arrow {
+  cursor: pointer;
+  max-height: 45px;
+  animation-name: arrow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.flipCardBack{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.qrCode {
+  max-width: 150px;
+}
+
+#phraseQrCode {
+  margin-top: 20px;
+  font-size: 10px;
+}
+
+.flipCardBack a img {
+  max-width: 300px;
+}
+
+#phraseDoWhile {
+  margin: 15px 0;
+  font-size: 15px;
+  max-width: 280px;
+}
+
+#phraseTogether {
+  background: -webkit-linear-gradient(135deg, #fd2279, #f8b625);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#hashtagDoWhile {
+  margin-left: 50px;
+  font-size: 14px;
+}
+
+.hashtagArrow {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-bottom: 4rem;
+  margin-top: 1rem;
+}
+
+@media(max-width: 400px) {
+  .flipCardFront, .flipCardBack {
+    background-position: center;
+  }
+  .flipCard {
+    width: 300px;
+    max-height: 550px;
+  }
+  #userBio {
+    max-width: 260px;
+    margin-top: 1.5rem;
+  }
+  .avatar img:first-child{
+    max-width: 70px;
+  }
+  .avatar img:last-child {
+    width: 150px;
+    height: 150px;
+  }
+  .socialArrow {
+    margin: 2rem 0 2rem 0;
+  }
+  .flipCardBack a img {
+    max-width: 270px;
+  }
+  #phraseDoWhile{
+    font-size: 14px;
+    max-width: 270px;
+  }
+  #phraseTogether {
+    font-size: 16px;
+  }
+  .hashtagArrow {
+    margin-bottom: 2rem;
+  }
+}
